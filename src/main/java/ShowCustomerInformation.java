@@ -19,7 +19,7 @@ public class ShowCustomerInformation {
         label.setFont(new Font("Arial", 20));
 
         TableView tableView = new TableView();
-        tableView.setMaxWidth(180);
+        tableView.setMinWidth(600);
 
         TableColumn<Integer, Customer> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -28,15 +28,28 @@ public class ShowCustomerInformation {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         nameCol.setMinWidth(140);
 
-        tableView.getColumns().addAll(idCol, nameCol);
+        TableColumn<String, Customer> phoneNumberCol = new TableColumn<>("Phone Number");
+        phoneNumberCol.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+
+        TableColumn<String, Customer> addressCol = new TableColumn<>("Address");
+        addressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+
+        tableView.getColumns().addAll(idCol, nameCol, phoneNumberCol, addressCol);
 
         try {
-            String sql = "SELECT * FROM Customer";
+            String sql = "SELECT C.id,\n" +
+                    "       C.name,\n" +
+                    "       C.phoneNumber,\n" +
+                    "       (A.houseNumber || ' ' || A.street || ' ' || A.ward || ' ' || A.district\n" +
+                    "           || ' ' || A.city || ' ' || A.province) as \"Address\"\n" +
+                    "FROM Customer C\n" +
+                    "         left outer join Address A on C.id = A.customerID";
             Connection connection = ConnectDatabase.getInstance().connect();
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Customer customer = new Customer(rs.getInt("id"), rs.getString("name"));
+                Customer customer = new Customer(rs.getInt("id"), rs.getString("name"), rs.getString("phoneNumber"),
+                        rs.getString("Address"));
                 tableView.getItems().add(customer);
             }
         } catch (SQLException e) {

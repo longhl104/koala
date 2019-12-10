@@ -14,7 +14,8 @@ public class App extends Application {
         stage.setResizable(false);
         Pane root = new Pane();
 
-        root.getChildren().add(new ShowCustomerInformation().getPane());
+//        root.getChildren().add(new ShowCustomerInformation().getPane());
+        root.getChildren().add(new WelcomePage().getPane());
 
         stage.setScene(new Scene(root, APP_WIDTH, APP_HEIGHT));
         stage.show();
