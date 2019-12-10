@@ -34,17 +34,10 @@ public class WelcomePage {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene secondScene = new Scene(new ShowCustomerInformation().getPane(), 700, 500);
-                Stage newWindow = new Stage();
-                newWindow.setTitle("Customer Information");
-                newWindow.setScene(secondScene);
-                newWindow.show();
+                ShowCustomerInformation showCustomerInformation = new ShowCustomerInformation();
+                showCustomerInformation.show();
             }
         });
-    }
-
-    private Pane customerInfo() {
-        return new ShowCustomerInformation().getPane();
     }
 
     public Pane getPane() {
