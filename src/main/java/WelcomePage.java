@@ -17,7 +17,6 @@ import java.io.IOException;
 
 public class WelcomePage {
     private Pane pane;
-    private Button customerButton;
 
     public WelcomePage() {
         pane = new VBox();
@@ -27,16 +26,13 @@ public class WelcomePage {
         label.setStyle("-fx-padding: 5");
         pane.getChildren().add(label);
 
-        customerButton = new Button("Show Customers Information");
+        Button customerButton = new Button("Show Customers Information");
         pane.getChildren().add(customerButton);
 
-        customerButton.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                ShowCustomerInformation showCustomerInformation = new ShowCustomerInformation();
-                showCustomerInformation.show();
-            }
+        customerButton.setOnAction(event -> {
+            ShowCustomerInformation showCustomerInformation = new ShowCustomerInformation();
+            Singleton.getInstance().setObserver(showCustomerInformation);
+            showCustomerInformation.show();
         });
     }
 

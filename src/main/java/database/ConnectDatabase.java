@@ -16,7 +16,6 @@ public class ConnectDatabase {
     }
 
     public Connection connect() {
-        // SQLite connection string
         String url = "jdbc:sqlite:D:\\Project\\Product Manager\\src\\main\\resources\\sqlite\\koala.db";
         Connection conn = null;
         try {

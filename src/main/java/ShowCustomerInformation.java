@@ -19,11 +19,10 @@ import javafx.util.Duration;
 
 import java.sql.*;
 
-public class ShowCustomerInformation {
+public class ShowCustomerInformation implements Observer{
     private Stage stage;
     private Scene scene;
     private Pane pane;
-    private Stage newWindow;
     private TableView tableView;
 
     public ShowCustomerInformation() {
@@ -95,11 +94,7 @@ public class ShowCustomerInformation {
     }
 
     private Pane getPane() {
-        Timeline timeline = new Timeline(new KeyFrame(new Duration(2000), t->{
-            showAllInfo();
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
+        showAllInfo();
         return pane;
     }
 
@@ -112,5 +107,10 @@ public class ShowCustomerInformation {
 
     private void close() {
         stage.close();
+    }
+
+    @Override
+    public void update(Customer customer) {
+        tableView.getItems().add(customer);
     }
 }
