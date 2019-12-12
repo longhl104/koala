@@ -14,9 +14,15 @@ public class Singleton {
     }
 
     public String getText(TextField textField) {
-        if (textField.getText().equals(""))
-            return null;
-        return String.format("%s", textField.getText());
+        if (textField == null)
+            return "";
+        return String.format("%s", textField.getText()).trim().replaceAll(" +", " ");
+    }
+
+    public String getText(String text) {
+        if (text == null)
+            return "";
+        return text.trim().replaceAll(" +", " ");
     }
 
     public void setObserver(Observer observer) {
@@ -26,4 +32,5 @@ public class Singleton {
     public Observer getObserver() {
         return observer;
     }
+
 }

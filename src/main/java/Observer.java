@@ -1,3 +1,5 @@
 public interface Observer {
-    void update(Customer customer);
+    void addCustomer(Customer customer);
+
+    void changeCustomer(int index, Customer customer);
 }

@@ -6,7 +6,7 @@ public class AddCustomerButton {
     public AddCustomerButton() {
         button = new Button("Add a customer");
         button.setOnAction(event -> {
-            AddCustomer addCustomer = new AddCustomer();
+            ModifyCustomer addCustomer = new AddCustomer();
             addCustomer.show();
         });
     }

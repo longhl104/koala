@@ -49,7 +49,13 @@ public class ShowCustomerInformation implements Observer {
     }
 
     @Override
-    public void update(Customer customer) {
+    public void addCustomer(Customer customer) {
         tableView.getItems().add(customer);
+    }
+
+    @Override
+    public void changeCustomer(int index, Customer customer) {
+        tableView.getItems().remove(index);
+        tableView.getItems().add(index, customer);
     }
 }
