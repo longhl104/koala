@@ -1,10 +1,13 @@
-import database.ConnectDatabase;
+package koala;
+
+import koala.database.ConnectDatabase;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import koala.modifyCustomer.ChangeCustomer;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

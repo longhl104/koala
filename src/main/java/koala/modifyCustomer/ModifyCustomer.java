@@ -1,6 +1,6 @@
-import database.ConnectDatabase;
+package koala.modifyCustomer;
+
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -8,8 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.sql.*;
+import koala.Customer;
 
 public abstract class ModifyCustomer {
     protected Stage stage;

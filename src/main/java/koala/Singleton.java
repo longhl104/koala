@@ -1,4 +1,11 @@
+package koala;
+
 import javafx.scene.control.TextField;
+import koala.database.ConnectDatabase;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class Singleton {
     private static Singleton instance;
@@ -33,4 +40,14 @@ public class Singleton {
         return observer;
     }
 
+    public void voidParameterizedSQL(String sql, String... args) throws SQLException {
+        Connection connection = ConnectDatabase.getInstance().connect();
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        int index = 1;
+        for (String arg : args)
+            pstmt.setString(index++, arg);
+        pstmt.executeUpdate();
+        pstmt.close();
+        connection.close();
+    }
 }

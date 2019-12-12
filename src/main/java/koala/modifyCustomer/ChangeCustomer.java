@@ -1,5 +1,10 @@
-import database.ConnectDatabase;
+package koala.modifyCustomer;
+
 import javafx.scene.Scene;
+
+import koala.Customer;
+import koala.Singleton;
+import koala.database.ConnectDatabase;
 
 import java.sql.*;
 
@@ -60,27 +65,20 @@ public class ChangeCustomer extends ModifyCustomer {
                         "WHERE Address.customerID = (SELECT id\n" +
                         "                            FROM Customer\n" +
                         "                            WHERE id = ?)";
-                Connection connection = ConnectDatabase.getInstance().connect();
-                PreparedStatement pstmt = connection.prepareStatement(sql1);
-                pstmt.setString(1, Singleton.getInstance().getText(name));
-                pstmt.setString(2, Singleton.getInstance().getText(phoneNumber));
-                pstmt.setString(3, String.valueOf(rowNo));
-                pstmt.executeUpdate();
-                pstmt.close();
-                connection.close();
 
-                connection = ConnectDatabase.getInstance().connect();
-                pstmt = connection.prepareStatement(sql2);
-                pstmt.setString(1, getText(houseNumber));
-                pstmt.setString(2, getText(street));
-                pstmt.setString(3, getText(ward));
-                pstmt.setString(4, getText(district));
-                pstmt.setString(5, getText(city));
-                pstmt.setString(6, getText(province));
-                pstmt.setString(7, String.valueOf(rowNo));
-                pstmt.executeUpdate();
-                pstmt.close();
-                connection.close();
+                Singleton.getInstance().voidParameterizedSQL(sql1,
+                        getText(name),
+                        getText(phoneNumber),
+                        String.valueOf(rowNo));
+
+                Singleton.getInstance().voidParameterizedSQL(sql2,
+                        getText(houseNumber),
+                        getText(street),
+                        getText(ward),
+                        getText(district),
+                        getText(city),
+                        getText(province),
+                        String.valueOf(rowNo));
 
                 newCustomer = new Customer(rowNo, name.getText(), phoneNumber.getText(), String.format(
                         "%s %s %s %s " +
@@ -92,10 +90,10 @@ public class ChangeCustomer extends ModifyCustomer {
                         city.getText(),
                         province.getText()).trim().replaceAll(" +", " "));
                 notifyObserver();
+                close();
             } catch (SQLException e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
-            close();
         });
     }
 

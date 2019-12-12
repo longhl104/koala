@@ -1,3 +1,5 @@
+package koala;
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -7,10 +9,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import koala.modifyCustomer.AddCustomerButton;
 
 public class ShowCustomerInformation implements Observer {
     private Stage stage;
-    private Scene scene;
     private Pane pane;
     private TableView tableView;
 
@@ -38,7 +40,7 @@ public class ShowCustomerInformation implements Observer {
     }
 
     public void show() {
-        scene = new Scene(getPane());
+        Scene scene = new Scene(getPane());
         stage.setTitle("Show Customer Information");
         stage.setScene(scene);
         stage.show();

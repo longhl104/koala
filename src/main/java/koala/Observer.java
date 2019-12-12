@@ -1,3 +1,5 @@
+package koala;
+
 public interface Observer {
     void addCustomer(Customer customer);
 
