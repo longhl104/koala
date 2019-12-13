@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/koala/CustomerTable.java" dialect="OracleSqlPlus" />
-    <file url="file://$PROJECT_DIR$/src/main/java/koala/ShowCustomerInformation.java" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/koala/modifyCustomer/AddCustomer.java" dialect="ClickHouse" />
-    <file url="file://$PROJECT_DIR$/src/main/java/koala/modifyCustomer/ChangeCustomer.java" dialect="OracleSqlPlus" />
-    <file url="file://$PROJECT_DIR$/src/main/java/koala/modifyCustomer/ModifyCustomer.java" dialect="ClickHouse" />
+    <file url="file://$PROJECT_DIR$/src/main/java/koala/customer/CustomerTable.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/main/java/koala/customer/ShowCustomerInformation.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/main/java/koala/customer/modifyCustomer/AddCustomer.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/main/java/koala/customer/modifyCustomer/ChangeCustomer.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/main/java/koala/customer/modifyCustomer/ModifyCustomer.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/main/java/koala/product/ProductTable.java" dialect="SQLite" />
+    <file url="PROJECT" dialect="SQLite" />
   </component>
 </project>

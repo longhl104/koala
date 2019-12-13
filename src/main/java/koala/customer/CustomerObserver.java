@@ -1,6 +1,6 @@
-package koala;
+package koala.customer;
 
-public interface Observer {
+public interface CustomerObserver {
     void addCustomer(Customer customer);
 
     void changeCustomer(int index, Customer customer);
