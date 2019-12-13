@@ -1,4 +1,4 @@
-package koala.modifyCustomer;
+package koala.customer.modifyCustomer;
 
 import javafx.scene.control.Button;
 

@@ -1,6 +1,7 @@
 package koala;
 
 import javafx.scene.control.TextField;
+import koala.customer.CustomerObserver;
 import koala.database.ConnectDatabase;
 
 import java.sql.Connection;
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 public class Singleton {
     private static Singleton instance;
 
-    private static Observer observer;
+    private static CustomerObserver observer;
 
     private Singleton() {}
 
@@ -32,11 +33,11 @@ public class Singleton {
         return text.trim().replaceAll(" +", " ");
     }
 
-    public void setObserver(Observer observer) {
+    public void setObserver(CustomerObserver observer) {
         Singleton.observer = observer;
     }
 
-    public Observer getObserver() {
+    public CustomerObserver getObserver() {
         return observer;
     }
 

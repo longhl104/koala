@@ -1,4 +1,4 @@
-package koala;
+package koala.customer;
 
 public class Customer {
     private int id;

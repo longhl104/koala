@@ -1,8 +1,8 @@
-package koala.modifyCustomer;
+package koala.customer.modifyCustomer;
 
 import javafx.scene.Scene;
 
-import koala.Customer;
+import koala.customer.Customer;
 import koala.Singleton;
 import koala.database.ConnectDatabase;
 

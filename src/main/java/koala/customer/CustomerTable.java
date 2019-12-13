@@ -1,5 +1,6 @@
-package koala;
+package koala.customer;
 
+import koala.Singleton;
 import koala.database.ConnectDatabase;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -7,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import koala.modifyCustomer.ChangeCustomer;
+import koala.customer.modifyCustomer.ChangeCustomer;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -148,13 +149,9 @@ class CustomerTableCell extends TableCell {
     private void createTextField() {
         textField = new TextField(getString());
         textField.setMinWidth(this.getWidth() - this.getGraphicTextGap() * 2);
-        textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> arg0,
-                                Boolean arg1, Boolean arg2) {
-                if (!arg2) {
-                    commitEdit(textField.getText());
-                }
+        textField.focusedProperty().addListener((arg0, arg1, arg2) -> {
+            if (!arg2) {
+                commitEdit(textField.getText());
             }
         });
     }

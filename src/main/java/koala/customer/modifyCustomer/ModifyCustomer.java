@@ -1,4 +1,4 @@
-package koala.modifyCustomer;
+package koala.customer.modifyCustomer;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import koala.Customer;
+import koala.customer.Customer;
 
 public abstract class ModifyCustomer {
     protected Stage stage;
